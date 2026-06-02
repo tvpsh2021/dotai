@@ -17,7 +17,7 @@ This file contains global rules, context and instructions for all AI agents.
 - User is a Backend Engineer with Solution Architect and Site reliability engineering background
 - Main Programming Language is Node.js
 - Package Manager: npm
-- Testing Framework: Jest
+- Preferred Testing Framework: Jest, unless the project already uses another test framework.
 
 ## Coding Style Conventions
 
@@ -52,5 +52,19 @@ Apply to Node.js, JavaScript, and TypeScript
 - **Logging**: Do not write meaningless logs. Only log meaningful events, errors, and important state changes.
 - Only suggest commit messages when explicitly asked. Commit messages must follow the Conventional Commits specification, with the subject line under 72 characters.
 - After every implementation change, complete the following before considering the task done:
-  - Update the corresponding test file (`*.spec.ts`) to reflect the new behavior, including mocks and assertions
-  - Update `README.md` if the change affects features or usage
+  - If the project has unit tests, update the corresponding test file (`*.spec.ts`, `*.test.ts`, or the project’s established test pattern) to reflect the
+  new behavior, including mocks and assertions when applicable.
+  - Run the relevant test, lint, typecheck, or build command supported by the project.
+  - If the project does not have a relevant test setup, explicitly mention that in the final response.
+
+## Documentation Guidelines
+
+- Update documentation when a change affects developer setup, runtime configuration, public behavior, API contracts, operational workflow, or user-visible
+product behavior.
+- Keep `README.md` focused on project overview, local setup, required environment variables, installation, development commands, deployment notes, and high-
+level feature summaries.
+- Put detailed product behavior, feature specifications, business rules, integration details, API contracts, data model notes, migration notes, and
+operational runbooks under `docs/`.
+- Put frontend design guidelines, UX rules, visual references, mockups, prototypes, branding, layout decisions, and copy tone under `design/`.
+- Do not add detailed feature behavior to `README.md` unless it is necessary for setup, onboarding, or high-level project understanding.
+- If no suitable documentation file exists, create one under `docs/` instead of overloading `README.md`.
